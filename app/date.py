@@ -1,15 +1,21 @@
 from app.interfaces import IMessage
 from .decorator import MessageDecorator
 
-class DatePrint(MessageDecorator):
+class DateDecorator(MessageDecorator):
     """
-    Декоратор для добавления даты
+    Декоратор для добавления даты к сообщению
     """
 
-    def __init__(self, message: IMessage, date: str):
+    def __init__(self, message: IMessage, date: str) -> None:
+        """
+        Инициализация декоратора даты
+        """
         super().__init__(message)
-        self.date = date
+        self.date: str = date
 
-    def Print(self):
-        super().Print()
+    def print(self) -> None:
+        """
+        Печатает перво сообщение и дату
+        """
+        super().print()
         print(self.date)
