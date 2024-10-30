@@ -1,12 +1,15 @@
 import base64
 from .decorator import MessageDecorator
 
-class Base64Print(MessageDecorator):
+class Base64Decorator(MessageDecorator):
     """
-    Декоратор для кодирования сообщения в Base64
+    Декоратор для кодирования сообщеиня в формат Base64
     """
 
-    def Print(self):
-        message_content = self.get_content()
-        message_in_base64 = base64.b64encode(message_content.encode()).decode()
+    def print(self) -> None:
+        """
+        Кодирует сообщения
+        """
+        message_content: str = self._message.content
+        message_in_base64: str = base64.b64encode(message_content.encode()).decode()
         print(message_in_base64)
