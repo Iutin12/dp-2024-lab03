@@ -1,15 +1,21 @@
 from app.interfaces import IMessage
 from .decorator import MessageDecorator
 
-class HeaderPrint(MessageDecorator):
+class HeaderDecorator(MessageDecorator):
     """
-    Декоратор для добавления заголовка
+    Декоратор для добавления заголовка к сообщению
     """
 
-    def __init__(self, message: IMessage, header: str):
+    def __init__(self, message: IMessage, header: str) -> None:
+        """
+        Инициализация декоратора для заголовка
+        """
         super().__init__(message)
-        self.header = header
+        self.header: str = header
 
-    def Print(self):
+    def print(self) -> None:
+        """
+        Печатает заголовок и сообщение
+        """
         print(self.header)
-        super().Print()
+        super().print()
