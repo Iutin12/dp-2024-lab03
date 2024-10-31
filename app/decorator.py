@@ -16,3 +16,9 @@ class MessageDecorator(IMessage):
         Печатает сообщение
         """
         self._message.print()
+
+    def get_content(self) -> str:
+        """
+        Возвращает содержимое сообщения.
+        """
+        return self._message.get_content()
