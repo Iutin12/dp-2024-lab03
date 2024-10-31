@@ -1,6 +1,7 @@
 from app.interfaces import IMessage
 from .decorator import MessageDecorator
 
+
 class FooterDecorator(MessageDecorator):
     """
     Декоратор для добавления подписи к сообщению
@@ -11,11 +12,17 @@ class FooterDecorator(MessageDecorator):
         Инициализация декоратора для подписи
         """
         super().__init__(message)
-        self.footer: str = footer
+        self._footer: str = footer
 
     def print(self) -> None:
         """
         Печатает сообщение и подпись
         """
         super().print()
-        print(self.footer)
+        print(self._footer)
+
+    def get_content(self) -> str:
+        """
+        Возвращает содержимое сообщения с добавленной подписью
+        """
+        return f"{super().get_content()}\n{self._footer}"
