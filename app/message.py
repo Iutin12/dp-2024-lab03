@@ -9,10 +9,16 @@ class Message(IMessage):
         """
         Инициализирует объект сообщения
         """
-        self.content = content
+        self._content = content
 
     def print(self) -> None:
         """
         Печатает сообщение
         """
-        print(self.content)
+        print(self._content)
+
+    def get_content(self) -> str:
+        """
+        Возвращает содержимое сообщения.
+        """
+        return self._content
